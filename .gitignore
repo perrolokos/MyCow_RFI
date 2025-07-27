@@ -1,0 +1,17 @@
+# Node
+node_modules/
+
+# Laravel
+/vendor/
+.env
+.env.*.backup
+/storage/*.key
+/storage/oauth-private.key
+/storage/oauth-public.key
+.phpunit.result.cache
+
+# Mac
+.DS_Store
+
+# Vite build
+frontend/dist/
