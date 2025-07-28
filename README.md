@@ -8,7 +8,34 @@ This repository bootstraps the initial architecture for the **MyCows_RFI** proje
 - **frontend/** – React application scaffolded for Vite. After installing Node dependencies (`npm install`), run `npm run dev` to launch the frontend.
 - **.gitignore** – Common ignores for Laravel and Node projects.
 
-The aim of this sprint is to provide the basic structure required to start development once dependencies can be installed.
+The aim of this sprint is to provide the basic structure required to start development once dependencies can be installed.  The project is split into a **backend** folder for the Laravel API and a **frontend** folder for the React SPA.
+
+## Getting Started
+
+1. Install [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/).
+2. Clone this repository and run the following commands from inside the `backend` directory:
+
+   ```bash
+   composer create-project laravel/laravel .
+   cp .env.example .env
+   ./vendor/bin/sail up -d
+   ./vendor/bin/sail artisan migrate --seed
+   ```
+
+   The last command loads default roles, score templates and an admin user.  The seeded admin credentials are:
+
+   - **Email:** `admin@example.com`
+   - **Password:** `password`
+
+3. In a second terminal install the frontend dependencies:
+
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+   The React app will be available at <http://localhost:5173> and will connect to the API served from Sail on port `80`.
 
 Sprint 1 introduces skeleton code for user authentication. The backend now contains models, migrations and route stubs for registering and logging in users with Laravel Sanctum, while the frontend provides a basic login form and a protected area.
 

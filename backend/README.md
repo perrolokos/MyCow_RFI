@@ -7,7 +7,14 @@ This directory is intended to host the Laravel backend for **MyCows_RFI**. Due t
 2. Clone this repository.
 3. Run `composer create-project laravel/laravel .` within this `backend` folder to install Laravel.
 4. Copy `.env.example` to `.env` and adjust credentials if necessary.
-5. Run `./vendor/bin/sail up` to start the development environment.
+5. Run `./vendor/bin/sail up -d` to start the development environment.
+6. Execute the migrations and seeders:
+
+   ```bash
+   ./vendor/bin/sail artisan migrate --seed
+   ```
+
+   This seeds an admin user with email `admin@example.com` and password `password`.
 
 The provided `docker-compose.yml` mirrors the default services offered by Laravel Sail: an app container, PostgreSQL, Redis and Mailpit.
 
